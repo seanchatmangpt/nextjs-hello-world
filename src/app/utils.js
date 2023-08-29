@@ -74,7 +74,7 @@ export async function fetchFlaskAPI() {
   }
 
   const response = await fetch(getFlaskURL(), mergedOptions);
-  console.log("src/app/utils.js", getFlaskURL(), "fetchFlaskAPI", response);
+  console.log("src/app/utils.js", getFlaskURL(), "fetchFlaskAPI", response, mergedOptions);
   const json = await response.json();
   console.log("src/app/utils.js", "fetchFlaskAPI", json);
   return json;
