@@ -10,7 +10,7 @@ services:
     - key: NODE_ENV
       value: production
     - key: NODE_VERSION
-      value: 17
+      value: 19
 # Uncomment the following to deploy this app as a static site on render
 # - type: web
 #   name: nextjs-static
