@@ -1,4 +1,35 @@
 import Image from "next/image";
+import {fetchFlaskAPI, fetchStrapiAPI} from "@/app/utils";
+
+async function getData() {
+  const res = await fetchStrapiAPI('/messages/1')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.data) {
+    console.log("src/app/page.js", res);
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+
+  return res
+}
+
+async function getData2() {
+  const res = await fetchFlaskAPI('/')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res) {
+    console.log("src/app/page.js", res);
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+
+  return res
+}
+
+
 
 const quotes = [
   "The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela",
@@ -8,7 +39,10 @@ const quotes = [
   "The future belongs to those who believe in the beauty of their dreams. -Eleanor Roosevelt",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const res = await getData()
+  const res2 = await getData2()
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="container mx-auto px-4 h-full">
@@ -16,12 +50,12 @@ export default function Home() {
           <h1 className="text-6xl font-bold">
             Welcome to{" "}
             <a className="text-blue-600" href="https://chiefofstaffgpt.com">
-              ChiefOfStaffGPT!
+              ChiefOfStaffGPT! {res.data.attributes.content}
             </a>
           </h1>
 
           <p className="mt-3 text-2xl">
-            We help you manage your executive office more effectively.
+            We help you manage your executive office more effectively. {JSON.stringify(res2)}
           </p>
 
           <section className="mt-10">
