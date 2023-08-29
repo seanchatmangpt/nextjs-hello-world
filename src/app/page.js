@@ -40,7 +40,7 @@ const quotes = [
 ];
 
 export default async function Home() {
-  const res = await getData()
+  // const res = await getData()
   const res2 = await getData2()
 
   return (
@@ -50,7 +50,8 @@ export default async function Home() {
           <h1 className="text-6xl font-bold">
             Welcome to{" "}
             <a className="text-blue-600" href="https://chiefofstaffgpt.com">
-              ChiefOfStaffGPT! {res.data.attributes.content}
+              ChiefOfStaffGPT!
+              {/*{res.data.attributes.content}*/}
             </a>
           </h1>
 
