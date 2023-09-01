@@ -17,18 +17,8 @@ async function getData() {
   return res;
 }
 
-async function getData2() {
-  const res = await fetchFlaskAPI("/");
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res) {
-    console.log("src/app/page.js", res);
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res;
+async function getWorlds() {
+  return await new World().getAll();
 }
 
 const quotes = [
@@ -41,8 +31,7 @@ const quotes = [
 
 export default async function Home() {
   // const res = await getData()
-  const res2 = await getData2();
-  const worlds = await new World().getAll();
+  const worlds = await getWorlds();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -56,8 +45,7 @@ export default async function Home() {
           </h1>
 
           <p className="mt-3 text-2xl">
-            We help you manage your executive office more effectively.{" "}
-            {JSON.stringify(res2)}
+            We help you manage your executive office more effectively.
           </p>
           <WorldTable worlds={worlds} />
 
