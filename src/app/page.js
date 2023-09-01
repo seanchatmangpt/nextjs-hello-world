@@ -51,7 +51,7 @@ const LandingPage = () => {
 
 export default async function Home() {
   // const res = await getData()
-  const worlds = await getWorlds();
+  // const worlds = await getWorlds();
 
   return <LandingPage />;
 }
