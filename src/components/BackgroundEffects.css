@@ -1,0 +1,112 @@
+.background-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+.sun {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  font-size: 10rem;
+  animation: spinSun 30s infinite linear;
+}
+
+.moon {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 10rem;
+  animation: spinMoon 30s infinite linear;
+}
+
+@keyframes floatStars {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes spinSun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinMoon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ... existing CSS ... */
+/* ... existing CSS ... */
+
+.moons {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+
+.moon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 10rem;
+  opacity: 0;
+  transform-origin: center;
+}
+
+.moon-1 {
+  animation: cycleMoons 64s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-2 {
+  animation: cycleMoons 64s 8s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-3 {
+  animation: cycleMoons 64s 16s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-4 {
+  animation: cycleMoons 64s 24s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-5 {
+  animation: cycleMoons 64s 32s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-6 {
+  animation: cycleMoons 64s 40s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-7 {
+  animation: cycleMoons 64s 48s infinite steps(8), rotateMoon 8s infinite linear;
+}
+.moon-8 {
+  animation: cycleMoons 64s 56s infinite steps(8), rotateMoon 8s infinite linear;
+}
+
+@keyframes cycleMoons {
+  0%, 100% {
+    opacity: 0;
+  }
+  12.5%, 87.5% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateMoon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

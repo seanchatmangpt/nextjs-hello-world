@@ -25,3 +25,115 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.text-glitter {
+  background: linear-gradient(45deg, #FFB6C1, #FF69B4, #FF4500, #FF6347);
+  background-size: 400% 400%;
+  color: white;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-shadows {
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.threeD-effect {
+  perspective: 1000px;
+  transform: rotateY(20deg) rotateX(20deg);
+}
+
+
+
+
+
+
+.background-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.stars-layer-1,
+.stars-layer-2,
+.stars-layer-3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.stars-layer-1:before,
+.stars-layer-1:after,
+.stars-layer-2:before,
+.stars-layer-2:after,
+.stars-layer-3:before,
+.stars-layer-3:after {
+  content: "⭐️✨🌟💫";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stars-layer-1:before {
+  animation: floatStars 80s infinite linear;
+}
+
+.stars-layer-2:before {
+  animation: floatStars 60s infinite linear;
+}
+
+.stars-layer-3:before {
+  animation: floatStars 40s infinite linear;
+}
+
+@keyframes floatStars {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.sun-emoji {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+  font-size: 10rem;
+  animation: rotateSun 20s infinite linear;
+}
+
+@keyframes rotateSun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+

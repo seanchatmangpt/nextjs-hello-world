@@ -2,6 +2,12 @@ import Image from "next/image";
 import { fetchFlaskAPI, fetchStrapiAPI } from "@/app/utils";
 import World from "@/models/World";
 import WorldTable from "@/components/WorldTable";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeatureSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import PricingSection from "@/components/PricingSection";
+import ContactSection from "@/components/ContactSection";
+import BackgroundEffects from "@/components/BackgroundEffects";
 
 async function getData() {
   const res = await fetchStrapiAPI("/messages/1");
@@ -29,47 +35,23 @@ const quotes = [
   "The future belongs to those who believe in the beauty of their dreams. -Eleanor Roosevelt",
 ];
 
+// LandingPage.js
+const LandingPage = () => {
+  return (
+    <div className="landing-page">
+      <HeroSection />
+      <FeaturesSection />
+      <TestimonialsSection />
+      <PricingSection />
+      <ContactSection />
+      <BackgroundEffects />
+    </div>
+  );
+};
+
 export default async function Home() {
   // const res = await getData()
   const worlds = await getWorlds();
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="container mx-auto px-4 h-full">
-        <main className="text-center mt-20">
-          <h1 className="text-6xl font-bold">
-            Welcome to{" "}
-            <a className="text-blue-600" href="https://chiefofstaffgpt.com">
-              ChiefOfStaffGPT!
-            </a>
-          </h1>
-
-          <p className="mt-3 text-2xl">
-            We help you manage your executive office more effectively.
-          </p>
-          <WorldTable worlds={worlds} />
-
-          <section className="mt-10">
-            <h2 className="text-4xl font-bold">Inspirational Quotes</h2>
-            <div className="mt-6 text-lg">
-              {quotes.map((quote, index) => (
-                <div key={index} className="my-4">
-                  <q className="italic">{quote}</q>
-                </div>
-              ))}
-            </div>
-          </section>
-        </main>
-
-        <footer className="absolute bottom-0 w-full h-20 flex items-center justify-center">
-          <a
-            className="flex items-center justify-center"
-            href="https://openai.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
-        </footer>
-      </div>
-    </main>
-  );
+  return <LandingPage />;
 }
